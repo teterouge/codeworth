@@ -36,7 +36,7 @@ That makes it useful for:
 
 ---
 
-Codeworth runs two parallel scanners—source analysis and artifact analysis—then uses Claude plus reference guides to produce a rebuild-effort and cost estimate.
+Codeworth runs two parallel scanners, a source analysis and an artifact analysis, then uses Claude plus reference guides to produce a rebuild-effort and cost estimate.
 ---
 ## Example Output
 
