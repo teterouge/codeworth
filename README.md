@@ -30,6 +30,12 @@ That makes it useful for:
 - AI PM portfolio review when assessing the substance of technical work
 
 ---
+## Architecture
+
+![Codeworth architecture](docs/codeworth-architecture.svg)
+
+Codeworth runs two parallel scanners—source analysis and artifact analysis—then uses Claude plus reference guides to produce a rebuild-effort and cost estimate.
+---
 
 ## What makes Codeworth different
 
