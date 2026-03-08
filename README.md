@@ -35,6 +35,9 @@ That makes it useful for:
 ![Codeworth architecture](docs/codeworth-architecture.svg)
 
 ---
+
+Codeworth runs two parallel scanners—source analysis and artifact analysis—then uses Claude plus reference guides to produce a rebuild-effort and cost estimate.
+---
 ## Example Output
 
 Below is a sanitized excerpt from a real Codeworth analysis report. It shows the kind of executive-facing output the skill produces without exposing sensitive implementation details from the analyzed repository.
@@ -88,9 +91,7 @@ Although the codebase was modest in raw size, Codeworth identified several facto
 The codebase appeared relatively small, but the replacement cost was driven by **embedded domain knowledge, platform-specific implementation constraints, and product rigor**, not code volume alone.
 
 That is the core problem Codeworth is built to surface.
----
 
-Codeworth runs two parallel scanners—source analysis and artifact analysis—then uses Claude plus reference guides to produce a rebuild-effort and cost estimate.
 ---
 
 ## What makes Codeworth different
