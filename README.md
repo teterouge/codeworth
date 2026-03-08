@@ -1,4 +1,3 @@
-
 # Codeworth
 
 AI-powered repository valuation and rebuild-effort estimation for technical diligence, rewrite scoping, and engineering cost analysis.
@@ -30,10 +29,12 @@ That makes it useful for:
 - AI PM portfolio review when assessing the substance of technical work
 
 ---
+
 ## Architecture
 
-![Codeworth architecture](docs/codeworth-architecture.svg)
+![Codeworth architecture](docs/codeworth-architecture.png)
 
+<<<<<<< HEAD
 ---
 
 Codeworth runs two parallel scanners, a source analysis and an artifact analysis, then uses Claude plus reference guides to produce a rebuild-effort and cost estimate.
@@ -47,11 +48,25 @@ Below is a sanitized excerpt from a real Codeworth analysis report. It shows the
 > **Rebuild difficulty:** **High**  
 > **Estimated rebuild effort:** **40–54 weeks / 2.3 person-years**  
 > **Estimated cost range:** **$352,000–$634,000 USD**  
+=======
+Codeworth runs two parallel scanners—source analysis and artifact analysis—then uses Claude plus reference guides to produce a rebuild-effort and cost estimate.
+
+---
+
+## Example Output
+
+Below is a sanitized excerpt from a real Codeworth analysis report. It shows the type of executive-facing estimate produced by the tool without exposing sensitive implementation details from the analyzed repository.
+
+> **Example analysis:** specialized Android security application  
+> **Estimated rebuild effort:** **40–54 weeks**  
+> **Estimated cost range:** **$350k–$640k USD**  
+>>>>>>> aaca1a4 (Add architecture documentation and sanitized example analysis report)
 > **Confidence:** **Medium**
 
 ### Repository Overview
 
 - **Primary languages:** Kotlin (Android), TypeScript (Next.js)
+<<<<<<< HEAD
 - **Architecture pattern:** multi-layered mobile application with separate web/marketing surface
 - **Approximate size:** ~22,000 LOC excluding generated/vendor code
 - **Product type:** niche consumer security application
@@ -77,11 +92,42 @@ Although the codebase was modest in raw size, Codeworth identified several facto
 
 - **1× PM / security-minded product lead**  
   Drives threat-model translation, specification quality, and release coordination
+=======
+- **Architecture pattern:** multi-layered mobile application with supporting web surface
+- **Approximate size:** ~22,000 LOC excluding generated/vendor code
+- **Product type:** niche consumer security application
+- **Notable complexity:** platform-level integrations and security-driven design constraints
+
+### Why the estimate was high
+
+Although the codebase was modest in size, Codeworth identified several drivers of increased rebuild effort:
+
+- specialized Android platform knowledge
+- nonstandard security and privacy constraints
+- multiple system integrations
+- validation and documentation artifacts
+- embedded threat-model reasoning
+
+### Recommended Team
+
+**Senior Android Engineer**
+
+Owns platform architecture and high-risk technical constraints.
+
+**Mid-Level Android / Full Stack Engineer**
+
+Handles UI flows, integrations, and supporting systems.
+
+**Product Manager / Security-Oriented PM**
+
+Responsible for threat-model translation, specifications, and release coordination.
+>>>>>>> aaca1a4 (Add architecture documentation and sanitized example analysis report)
 
 ### Sample Cost Summary
 
 | Scenario | Total Hours | Estimated Cost |
 |---|---:|---:|
+<<<<<<< HEAD
 | Low | ~2,740 hrs | ~$352,000 |
 | Mid | ~3,660 hrs | ~$478,000 |
 | High | ~4,940 hrs | ~$645,000 |
@@ -91,6 +137,15 @@ Although the codebase was modest in raw size, Codeworth identified several facto
 The codebase appeared relatively small, but the replacement cost was driven by **embedded domain knowledge, platform-specific implementation constraints, and product rigor**, not code volume alone.
 
 That is the core problem Codeworth is built to surface.
+=======
+| Low | ~2,740 hrs | ~$350,000 |
+| Mid | ~3,660 hrs | ~$480,000 |
+| High | ~4,940 hrs | ~$640,000 |
+
+### Key Takeaway
+
+The codebase appeared relatively small, but the replacement cost was driven by **embedded domain knowledge, platform-specific engineering constraints, and product rigor**, not raw code volume.
+>>>>>>> aaca1a4 (Add architecture documentation and sanitized example analysis report)
 
 ---
 
@@ -101,18 +156,23 @@ Rebuild cost is driven by hidden complexity, not just code volume.
 Codeworth evaluates rebuild difficulty across five dimensions:
 
 ### 1. Domain Knowledge
+
 Specialized domains like payments, healthcare, cryptography, robotics, distributed systems, trading, tax, ML, or security.
 
 ### 2. Infrastructure Coupling
+
 Kubernetes, Terraform, Helm, service mesh, data platforms, deployment pipelines, and operational glue.
 
 ### 3. Data Model Complexity
+
 Schema depth, ORM model count, migration volume, and underlying state complexity.
 
 ### 4. Integration Surface Area
+
 External APIs, enterprise systems, billing/auth providers, and custom system interfaces.
 
 ### 5. Operational Maturity
+
 SLOs, runbooks, load tests, canary deploys, tracing, compliance artifacts, and production readiness signals.
 
 The result is not just hours. It is a structured estimate with reasoning.
@@ -170,15 +230,15 @@ Claude then synthesizes these signals into a structured rebuild estimate.
 
 Workflow:
 
-1. Analyze repository structure
-2. Analyze validation and documentation artifacts
-3. Classify components by complexity tier
-4. Score rebuild difficulty across five dimensions
-5. Decompose the system into engineering units
-6. Apply multipliers for rework, testing, and coordination
-7. Estimate PM effort where relevant
-8. Recommend team composition
-9. Convert hours to cost ranges
+1. Analyze repository structure  
+2. Analyze validation and documentation artifacts  
+3. Classify components by complexity tier  
+4. Score rebuild difficulty across five dimensions  
+5. Decompose the system into engineering units  
+6. Apply multipliers for rework, testing, and coordination  
+7. Estimate PM effort where relevant  
+8. Recommend team composition  
+9. Convert hours to cost ranges  
 
 ### Complexity tiers
 
@@ -200,6 +260,7 @@ Workflow:
 
 ## Repository structure
 
+```text
 codeworth/
 ├── .claude-plugin/
 │   └── plugin.json
@@ -218,6 +279,7 @@ codeworth/
 └── scripts/
     ├── analyze_repo.py
     └── scan_logs_and_validation.py
+```
 
 ---
 
@@ -225,8 +287,10 @@ codeworth/
 
 Clone locally:
 
+```
 git clone https://github.com/teterouge/codeworth.git
 cd codeworth
+```
 
 Then add the skill to your Claude environment using your preferred plugin workflow.
 
