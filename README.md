@@ -34,6 +34,62 @@ That makes it useful for:
 
 ![Codeworth architecture](docs/codeworth-architecture.svg)
 
+---
+## Example Output
+
+Below is a sanitized excerpt from a real Codeworth analysis report. It shows the kind of executive-facing output the skill produces without exposing sensitive implementation details from the analyzed repository.
+
+> **Example analysis: specialized Android security application**  
+> **Analyzed for:** small startup team (2–4 engineers + 1 PM)  
+> **Rebuild difficulty:** **High**  
+> **Estimated rebuild effort:** **40–54 weeks / 2.3 person-years**  
+> **Estimated cost range:** **$352,000–$634,000 USD**  
+> **Confidence:** **Medium**
+
+### Repository Overview
+
+- **Primary languages:** Kotlin (Android), TypeScript (Next.js)
+- **Architecture pattern:** multi-layered mobile application with separate web/marketing surface
+- **Approximate size:** ~22,000 LOC excluding generated/vendor code
+- **Product type:** niche consumer security application
+- **Notable complexity:** platform-specific Android constraints, multiple system integrations, and unusually high validation/documentation rigor for repo size
+
+### Why the estimate was high
+
+Although the codebase was modest in raw size, Codeworth identified several factors that materially increased rebuild effort:
+
+- specialized platform knowledge not common to standard Android teams
+- nonstandard privacy and security constraints
+- multiple low-level system integrations
+- meaningful documentation and validation artifacts
+- embedded threat-model complexity that would require research before implementation
+
+### Recommended Team
+
+- **1× Senior Android / platform engineer**  
+  Owns platform architecture and highest-risk technical constraints
+
+- **1× Mid Android / full-stack engineer**  
+  Handles application flows, integrations, and supporting web surface
+
+- **1× PM / security-minded product lead**  
+  Drives threat-model translation, specification quality, and release coordination
+
+### Sample Cost Summary
+
+| Scenario | Total Hours | Estimated Cost |
+|---|---:|---:|
+| Low | ~2,740 hrs | ~$352,000 |
+| Mid | ~3,660 hrs | ~$478,000 |
+| High | ~4,940 hrs | ~$645,000 |
+
+### Key Takeaway
+
+The codebase appeared relatively small, but the replacement cost was driven by **embedded domain knowledge, platform-specific implementation constraints, and product rigor**, not code volume alone.
+
+That is the core problem Codeworth is built to surface.
+---
+
 Codeworth runs two parallel scanners—source analysis and artifact analysis—then uses Claude plus reference guides to produce a rebuild-effort and cost estimate.
 ---
 
@@ -76,23 +132,6 @@ Running Codeworth generates a report containing:
 - Recommended team composition
 - Unified low / mid / high cost estimate
 - Key complexity drivers and caveats
-
----
-
-## Example insight
-
-A repository can appear small but still have high rebuild cost because the real value lies in embedded knowledge.
-
-For example, an Android security application may contain modest LOC but encode deep expertise around:
-
-- Android Device Owner constraints
-- profile isolation mechanics
-- hidden API workarounds
-- threat-model-driven UX
-- coercion-resistant design
-- validation workflows
-
-These factors dramatically change rebuild effort.
 
 ---
 
