@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1280" viewBox="0 0 1600 1280">
+  <defs>
+    <style>
+      .bg { fill: #0b1020; }
+      .panel { fill: #11182b; stroke: #2a3758; stroke-width: 2; rx: 20; ry: 20; }
+      .panel2 { fill: #0f1526; stroke: #33456d; stroke-width: 2; rx: 18; ry: 18; }
+      .small { fill: #0f1526; stroke: #3b4d78; stroke-width: 2; rx: 14; ry: 14; }
+      .accent { fill: #cb8246; }
+      .line { stroke: #6f86b6; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .title { fill: #f3f5fb; font: 700 34px Arial, sans-serif; letter-spacing: 2px; }
+      .subtitle { fill: #d7def2; font: 600 18px Arial, sans-serif; }
+      .h1 { fill: #f3f5fb; font: 700 24px Arial, sans-serif; }
+      .h2 { fill: #e8ecf8; font: 700 20px Arial, sans-serif; }
+      .body { fill: #d0d8ee; font: 500 15px Arial, sans-serif; }
+      .mono { fill: #b8c4e4; font: 500 14px monospace; }
+      .muted { fill: #9fb0d9; font: 500 14px Arial, sans-serif; }
+      .chip { fill: #17213a; stroke: #455a8f; stroke-width: 1.5; rx: 999; ry: 999; }
+      .chiptext { fill: #d7def2; font: 600 13px Arial, sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8aa1d1" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1600" height="1280"/>
+
+  <rect class="panel" x="90" y="40" width="1420" height="92"/>
+  <text class="title" x="800" y="83" text-anchor="middle">CODEWORTH</text>
+  <text class="subtitle" x="800" y="113" text-anchor="middle">Claude Code Plugin / Skill • Repository rebuild estimation workflow</text>
+
+  <rect class="small" x="120" y="180" width="310" height="120"/>
+  <text class="h2" x="145" y="217">1. User Prompt</text>
+  <text class="body" x="145" y="247">“estimate this repo”</text>
+  <text class="body" x="145" y="270">GitHub URL or local path</text>
+  <text class="muted" x="145" y="292">Optional: team size, region, purpose</text>
+
+  <rect class="small" x="635" y="180" width="330" height="120"/>
+  <text class="h2" x="800" y="217" text-anchor="middle">2. SKILL.md</text>
+  <text class="body" x="800" y="247" text-anchor="middle">Claude loads workflow instructions</text>
+  <text class="body" x="800" y="270" text-anchor="middle">and runs both scanners in parallel</text>
+
+  <rect class="panel2" x="100" y="380" width="610" height="360"/>
+  <text class="h1" x="130" y="420">3A. analyze_repo.py</text>
+  <text class="subtitle" x="130" y="447">Source analysis + rebuild difficulty scoring</text>
+  <rect class="chip" x="130" y="470" width="150" height="30"/><text class="chiptext" x="205" y="490" text-anchor="middle">Language / LOC</text>
+  <rect class="chip" x="295" y="470" width="165" height="30"/><text class="chiptext" x="377" y="490" text-anchor="middle">Generated vs real</text>
+  <rect class="chip" x="475" y="470" width="165" height="30"/><text class="chiptext" x="557" y="490" text-anchor="middle">Test file ratio</text>
+  <rect class="chip" x="130" y="515" width="150" height="30"/><text class="chiptext" x="205" y="535" text-anchor="middle">Key files</text>
+  <rect class="chip" x="295" y="515" width="165" height="30"/><text class="chiptext" x="377" y="535" text-anchor="middle">Git history stats</text>
+  <rect class="chip" x="475" y="515" width="165" height="30"/><text class="chiptext" x="557" y="535" text-anchor="middle">Largest files</text>
+  <text class="h2" x="130" y="590">Rebuild Difficulty Dimensions</text>
+  <text class="body" x="140" y="620">• Domain knowledge</text>
+  <text class="body" x="140" y="646">• Infrastructure coupling</text>
+  <text class="body" x="140" y="672">• Data model complexity</text>
+  <text class="body" x="365" y="620">• Integration surface area</text>
+  <text class="body" x="365" y="646">• Operational maturity</text>
+  <text class="muted" x="130" y="708">Output: rebuild_difficulty { rating, score, dimensions, multiplier, domains, integrations }</text>
+
+  <rect class="panel2" x="890" y="380" width="610" height="360"/>
+  <text class="h1" x="920" y="420">3B. scan_logs_and_validation.py</text>
+  <text class="subtitle" x="920" y="447">Artifact analysis + implied effort by role</text>
+  <rect class="chip" x="920" y="470" width="170" height="30"/><text class="chiptext" x="1005" y="490" text-anchor="middle">CI/CD configs</text>
+  <rect class="chip" x="1105" y="470" width="180" height="30"/><text class="chiptext" x="1195" y="490" text-anchor="middle">Coverage reports</text>
+  <rect class="chip" x="1300" y="470" width="170" height="30"/><text class="chiptext" x="1385" y="490" text-anchor="middle">DB migrations</text>
+  <rect class="chip" x="920" y="515" width="170" height="30"/><text class="chiptext" x="1005" y="535" text-anchor="middle">Compliance / security</text>
+  <rect class="chip" x="1105" y="515" width="180" height="30"/><text class="chiptext" x="1195" y="535" text-anchor="middle">ADRs / specs / PRDs</text>
+  <rect class="chip" x="1300" y="515" width="170" height="30"/><text class="chiptext" x="1385" y="535" text-anchor="middle">Monitoring configs</text>
+  <text class="body" x="920" y="595">• Changelogs / releases</text>
+  <text class="body" x="920" y="621">• API contract files</text>
+  <text class="body" x="920" y="647">• Load-test scripts</text>
+  <text class="body" x="920" y="673">• Validation artifacts and logs</text>
+  <text class="muted" x="920" y="708">Output: artifact counts, artifact types, implied hours, likely role mix</text>
+
+  <rect class="panel" x="200" y="820" width="1200" height="250"/>
+  <text class="h1" x="800" y="860" text-anchor="middle">4. Claude Analysis Engine</text>
+  <text class="subtitle" x="800" y="888" text-anchor="middle">Rules + reference guides turn raw signals into a structured rebuild estimate</text>
+  <text class="body" x="250" y="930">• Tier classification by component</text>
+  <text class="body" x="250" y="958">• Rebuild difficulty rating</text>
+  <text class="body" x="250" y="986">• Component breakdown</text>
+  <text class="body" x="250" y="1014">• Estimation multipliers</text>
+  <text class="body" x="670" y="930">• Artifact effort interpretation</text>
+  <text class="body" x="670" y="958">• PM effort estimation</text>
+  <text class="body" x="670" y="986">• Team composition</text>
+  <text class="body" x="670" y="1014">• Cost calculation by role and region</text>
+  <text class="mono" x="800" y="1050" text-anchor="middle">references/: complexity-guide • rebuild-difficulty • multipliers • pm-effort-guide • log-validation-analysis • rate-cards</text>
+
+  <!-- Revised bottom box -->
+  <rect class="small" x="360" y="1118" width="880" height="122"/>
+  <text class="h2" x="800" y="1160" text-anchor="middle">5. Report Output</text>
+  <text class="body" x="800" y="1192" text-anchor="middle">Executive summary • Rebuild difficulty • Component breakdown</text>
+  <text class="body" x="800" y="1216" text-anchor="middle">PM effort • Team recommendation • Cost range</text>
+
+  <path class="line" d="M430 240 L635 240"/>
+  <path class="line" d="M800 300 L800 350"/>
+  <path class="line" d="M800 350 L405 350 L405 380"/>
+  <path class="line" d="M800 350 L1195 350 L1195 380"/>
+  <path class="line" d="M405 740 L405 780 L800 780 L800 820"/>
+  <path class="line" d="M1195 740 L1195 780 L800 780 L800 820"/>
+  <path class="line" d="M800 1070 L800 1118"/>
+
+  <rect class="accent" x="118" y="196" width="8" height="88" rx="4"/>
+  <rect class="accent" x="643" y="196" width="8" height="88" rx="4"/>
+  <rect class="accent" x="108" y="394" width="8" height="332" rx="4"/>
+  <rect class="accent" x="898" y="394" width="8" height="332" rx="4"/>
+  <rect class="accent" x="208" y="834" width="8" height="222" rx="4"/>
+  <rect class="accent" x="368" y="1132" width="8" height="94" rx="4"/>
+</svg>

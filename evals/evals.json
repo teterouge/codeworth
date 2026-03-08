@@ -1,0 +1,131 @@
+{
+  "skill_name": "repo-estimator",
+  "description": "Evaluations for the repo-estimator skill. Tests cover different project types, request phrasings, and edge cases.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm thinking about acquiring a SaaS startup and they sent me their codebase for due diligence. Can you estimate how much it would cost to rebuild this from scratch? It's a Next.js frontend with a Node.js/Express API, PostgreSQL database, Stripe integration for billing, and they use GitHub Actions for CI/CD. The repo is at /tmp/saas-acquisition-repo. US market rates please.",
+      "expected_output": "A detailed estimation report with: executive summary, repository overview with language/framework breakdown, component-by-component table with tier classifications, full multiplier breakdown, team recommendation, cost estimate with low/mid/high scenarios, key complexity drivers, and honest caveats. Should use US mid-senior rates (~$130/hr). Should identify and flag Stripe integration as a complexity factor.",
+      "assertions": [
+        {
+          "id": "has_executive_summary",
+          "description": "Report includes an executive summary section",
+          "check": "output contains 'Executive Summary' or 'executive summary'"
+        },
+        {
+          "id": "has_component_breakdown",
+          "description": "Report includes a component breakdown table",
+          "check": "output contains a table with component names, tiers, and hours"
+        },
+        {
+          "id": "has_cost_range",
+          "description": "Report includes low/mid/high cost scenarios",
+          "check": "output contains dollar signs and at least two different cost figures"
+        },
+        {
+          "id": "has_multipliers",
+          "description": "Report applies and shows estimation multipliers",
+          "check": "output mentions rework, iteration, or adjustment factors"
+        },
+        {
+          "id": "has_caveats",
+          "description": "Report includes caveats or assumptions section",
+          "check": "output contains 'caveat' or 'assumption' or 'not included'"
+        },
+        {
+          "id": "identifies_stripe",
+          "description": "Report identifies Stripe payment integration as a complexity factor",
+          "check": "output mentions 'Stripe' or 'payment' in the context of complexity"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "hey i've got this open source project i want to know what it would cost to recreate. it's mostly Python, has a FastAPI backend, some ML stuff with PyTorch for inference, a React frontend, and a bunch of tests. the repo is at ~/projects/ml-platform. i don't have a specific budget in mind, just want to know what i'm looking at",
+      "expected_output": "A cost estimation report handling the ML/AI components correctly — PyTorch inference should be classified as Tier 3-4, which significantly drives up the estimate. Should note the test suite as adding to effort (positive signal). Should acknowledge the casual phrasing and still produce a professional output. Should flag ML inference as a key complexity driver.",
+      "assertions": [
+        {
+          "id": "identifies_ml_complexity",
+          "description": "Report identifies ML/AI components as high-complexity (Tier 3 or 4)",
+          "check": "output mentions ML, PyTorch, or machine learning in the context of Tier 3 or 4, or 'specialized'"
+        },
+        {
+          "id": "has_three_cost_scenarios",
+          "description": "Report provides at least two cost scenarios (low/mid or mid/high)",
+          "check": "output contains multiple cost figures with labels like 'low', 'mid', 'high', 'conservative', 'optimistic'"
+        },
+        {
+          "id": "acknowledges_tests",
+          "description": "Report mentions the test suite as a relevant factor",
+          "check": "output mentions 'test' in the context of effort or cost"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I'm a freelancer and a client wants me to rebuild their existing app from scratch. I want to make sure I'm pricing this correctly. Their current codebase is at /var/repos/client-ecommerce. It's a Django monolith with Celery for background jobs, a React frontend, multi-tenant architecture, and integrations with Shopify, Stripe, and a couple of shipping providers. Team of one (me, senior full-stack). What's the estimate?",
+      "expected_output": "Estimation scoped for a single senior developer. Multi-tenancy should be flagged as Tier 3 complexity. Multiple integrations (Shopify, Stripe, shipping APIs) should trigger the high end of integration multipliers. Should note that a solo developer's timeline will be significantly longer than a team. Rate should reflect senior-level ($140-185/hr range).",
+      "assertions": [
+        {
+          "id": "scoped_for_solo",
+          "description": "Report is scoped for a solo developer, not a team",
+          "check": "output mentions 'solo' or 'single developer' or '1 developer' or adjusts coordination overhead to 0%"
+        },
+        {
+          "id": "flags_multitenancy",
+          "description": "Multi-tenant architecture is flagged as complex (Tier 3)",
+          "check": "output mentions 'multi-tenant' or 'tenancy' in the context of complexity"
+        },
+        {
+          "id": "flags_multiple_integrations",
+          "description": "Multiple third-party integrations are noted as a complexity driver",
+          "check": "output mentions integration overhead or lists Shopify/Stripe/shipping as complexity factors"
+        },
+        {
+          "id": "senior_rates",
+          "description": "Uses senior developer rates (not junior)",
+          "check": "output uses hourly rates in the $120-$200 range for a senior developer"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Can you look at this repo and give me a rough sense of how much engineering effort went into it? Not looking for exact numbers, just a ballpark. It's a mobile app in React Native with a Firebase backend. Repo path: /home/dev/rn-fitness-app",
+      "expected_output": "A report that handles a React Native + Firebase stack. Should note that Firebase significantly reduces backend complexity (managed services = less code to build). Should still produce a structured estimate even though the user asked for 'rough sense' and 'ballpark'. Should explain what Firebase offloads vs what still needs to be built.",
+      "assertions": [
+        {
+          "id": "handles_firebase",
+          "description": "Report accounts for Firebase as a managed backend service that reduces effort",
+          "check": "output mentions Firebase and acknowledges it reduces backend complexity or offloads certain concerns"
+        },
+        {
+          "id": "produces_numbers",
+          "description": "Despite 'rough sense' phrasing, report produces actual estimates",
+          "check": "output contains hours or cost figures, not just qualitative descriptions"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "I'm evaluating a potential engineering hire and they shared their side project repo as a portfolio piece. I want to understand how substantial it actually is — like, what would it have cost to build this professionally? The repo is at /tmp/portfolio-project. It's a Go API with a Vue frontend and some Kubernetes deployment configs.",
+      "expected_output": "A report framed appropriately for evaluating engineering work. Should analyze the Kubernetes config as infrastructure work (Tier 2-3 depending on complexity). Should be balanced — if it's a small side project, the report should honestly reflect that, not inflate the numbers. The framing about evaluating a hire is context but shouldn't change the technical analysis.",
+      "assertions": [
+        {
+          "id": "honest_about_scope",
+          "description": "If the project is small, the estimate honestly reflects that (not artificially inflated)",
+          "check": "output provides an estimate proportionate to a side project scope if the analysis indicates that"
+        },
+        {
+          "id": "covers_infra",
+          "description": "Kubernetes/infrastructure is analyzed as part of the estimate",
+          "check": "output mentions Kubernetes, infrastructure, or DevOps as a component"
+        }
+      ],
+      "files": []
+    }
+  ]
+}
