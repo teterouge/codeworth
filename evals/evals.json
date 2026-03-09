@@ -1,5 +1,5 @@
 {
-  "skill_name": "repo-estimator",
+  "skill_name": "codeworth",
   "description": "Evaluations for the repo-estimator skill. Tests cover different project types, request phrasings, and edge cases.",
   "evals": [
     {
