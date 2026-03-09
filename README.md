@@ -285,7 +285,7 @@ codeworth/
 
 ## Installation
 
-Clone locally:
+### Clone locally:
 
 ```
 git clone https://github.com/teterouge/codeworth.git
@@ -293,6 +293,13 @@ cd codeworth
 ```
 
 Then add the skill to your Claude environment using your preferred plugin workflow.
+
+### Install from the Marketplace
+
+```
+claude plugin marketplace add teterouge/codeworth
+claude plugin install codeworth
+```
 
 ---
 
