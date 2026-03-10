@@ -30,8 +30,8 @@
     {
       "name": "spec-auditor",
       "source": {
-        "source": "github",
-        "repo": "teterouge/spec-auditor"
+        "source": "git",
+        "url": "https://github.com/teterouge/spec-auditor"
       },
       "description": "Adversarially audits product specs, PRDs, and feature briefs before they reach engineering.",
       "author": {
