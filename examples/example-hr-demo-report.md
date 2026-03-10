@@ -66,7 +66,7 @@
   ├──────────────────────────────────────────┼──────┼───────────┼────────────┼────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ V1 Evaluation API + Claude integration   │ 2    │ 16        │ 1.4×       │ 22             │ Single Claude call, JSON parsing with code-block stripping, error handling, validation                       │
   ├──────────────────────────────────────────┼──────┼───────────┼────────────┼────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ V2 Evaluation API (3-call orchestration) │ 3    │ 20        │ 1.8×       │ 36             │ 3 sequential Claude calls, 65/35 weighted scoring, misalignment detection, 3-min timeout                     │
+  │ V2 Evaluation API (3-call orchestration) │ 3    │ 20        │ 1.8×       │ 36             │ 3 sequential Claude calls, weighted scoring, misalignment detection, 3-min timeout                     │
   ├──────────────────────────────────────────┼──────┼───────────┼────────────┼────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
   │ LLM Prompt engineering                   │ 3    │ 16        │ 1.8×       │ 29             │ 3 system prompts with nuanced rubrics, 5-dimension scoring guides, cross-evaluation consistency checks       │
   ├──────────────────────────────────────────┼──────┼───────────┼────────────┼────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
@@ -135,7 +135,7 @@
   ├─────────────────────────────────┼─────────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
   │ Specification & story writing   │ 20              │ 2 full PRDs with user flows, feature specs, V1→V2 analysis                           │
   ├─────────────────────────────────┼─────────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
-  │ Evaluation rubric design        │ 8               │ Big Five scoring guide, weighting rationale (65/35 split), recommendation thresholds │
+  │ Evaluation rubric design        │ 8               │ Big Five scoring guide, weighting rationale, recommendation thresholds │
   ├─────────────────────────────────┼─────────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
   │ Acceptance testing coordination │ 4               │ IMPLEMENTATION_COMPLETE.md, NEXT_STEPS.md                                            │
   ├─────────────────────────────────┼─────────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
@@ -189,7 +189,7 @@
   Key Complexity Drivers
 
   - Three-call LLM orchestration in V2: The evaluate-v2 route chains three Claude calls sequentially — scenario eval → Big Five reasoning eval → combined recommendation — with a 3-minute timeout and error handling at each stage. Getting this right requires careful async design and meaningful prompt iteration.
-  - Prompt engineering as product IP: The three system prompts are the core value of this product. The Big Five rubric (90 lines), Combined Recommendation logic (weighted 65/35 scoring, misalignment detection), and scenario evaluation rubric represent real iterative design work that can't be reproduced by reading documentation.
+  - Prompt engineering as product IP: The three system prompts are the core value of this product. The Big Five rubric (90 lines), Combined Recommendation logic (weighted scoring, misalignment detection), and scenario evaluation rubric represent real iterative design work that can't be reproduced by reading documentation.
   - V1→V2 migration already encoded: The repo contains both V1 and V2 APIs running in parallel, plus a full analysis doc (ARCHITECTURE_ANALYSIS_V1_TO_V2.md). A rebuild starting from scratch gets this design clarity for free — but would need to make these same architectural decisions independently.
   - Documentation-to-code ratio: ~18,891 lines of Markdown vs ~3,300 lines of application code (~5.7:1). This reflects a solo developer who thought carefully before coding — a meaningful proportion of the total effort was in product design, not implementation.
 
