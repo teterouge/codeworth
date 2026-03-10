@@ -9,33 +9,42 @@
     "email": ""
   },
   "plugins": [
-  {
-    "name": "codeworth",
-    "source": "./",
-    "description": "Analyze a code repository and produce a detailed human time and cost estimate for rebuilding it from scratch. Goes beyond LOC counting to measure rebuild difficulty — the specialized knowledge, domain expertise, infrastructure coupling, data model depth, and operational maturity encoded in a codebase. Ideal for acquisition due diligence, rewrite scoping, freelancer pricing, and engineering effort audits.",
-    "version": "3.0.0",
-    "author": {
-      "name": "teterouge"
+    {
+      "name": "codeworth",
+      "source": "./",
+      "description": "Analyze a code repository and produce a detailed human time and cost estimate for rebuilding it from scratch. Goes beyond LOC counting to measure rebuild difficulty — the specialized knowledge, domain expertise, infrastructure coupling, data model depth, and operational maturity encoded in a codebase. Ideal for acquisition due diligence, rewrite scoping, freelancer pricing, and engineering effort audits.",
+      "version": "3.0.0",
+      "author": {
+        "name": "teterouge"
+      },
+      "category": "development",
+      "keywords": [
+        "estimation",
+        "cost-analysis",
+        "due-diligence",
+        "scoping",
+        "rebuild-difficulty",
+        "repo-analysis"
+      ]
     },
-    "category": "development",
-    "keywords": [
-      "estimation",
-      "cost-analysis",
-      "due-diligence",
-      "scoping",
-      "rebuild-difficulty",
-      "repo-analysis"
-    ]
-  },
-  {
-    "name": "spec-auditor",
-    "source": "https://github.com/teterouge/spec-auditor.git",
-    "description": "Adversarially audits product specs, PRDs, and feature briefs before they reach engineering.",
-    "author": {
-      "name": "teterouge"
-    },
-    "category": "development",
-    "keywords": ["specs", "requirements", "prd", "audit", "product"]
-  }
-]
+    {
+      "name": "spec-auditor",
+      "source": {
+        "source": "github",
+        "repo": "teterouge/spec-auditor"
+      },
+      "description": "Adversarially audits product specs, PRDs, and feature briefs before they reach engineering.",
+      "author": {
+        "name": "teterouge"
+      },
+      "category": "development",
+      "keywords": [
+        "specs",
+        "requirements",
+        "prd",
+        "audit",
+        "product"
+      ]
+    }
+  ]
 }
