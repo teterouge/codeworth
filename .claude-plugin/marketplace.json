@@ -34,7 +34,7 @@
         "url": "https://github.com/teterouge/spec-auditor"
       },
       "description": "Adversarially audits product specs, PRDs, and feature briefs before they reach engineering.",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "author": {
         "name": "teterouge"
       },
