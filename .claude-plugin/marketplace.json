@@ -1,11 +1,13 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "codeworth",
-  "description": "Estimate the real cost to rebuild any codebase from scratch. Goes beyond LOC to measure rebuild difficulty across 5 dimensions: domain knowledge, infrastructure coupling, data model depth, integration surface, and operational maturity.",
+  "metadata": {
+    "description": "Estimate the real cost to rebuild any codebase from scratch. Goes beyond LOC to measure rebuild difficulty across 5 dimensions: domain knowledge, infrastructure coupling, data model depth, integration surface, and operational maturity.",
   "owner": {
     "name": "teterouge",
     "email": ""
   },
+  
   "plugins": [
     {
       "name": "codeworth",
@@ -17,6 +19,20 @@
       },
       "category": "development",
       "keywords": ["estimation", "cost-analysis", "due-diligence", "scoping", "rebuild-difficulty", "repo-analysis"]
+    },
+    {
+      "name": "spec-auditor",
+      "source": {
+        "source": "github",
+        "repo": "teterouge/spec-auditor"
+      },
+      "description": "Adversarially audits product specs, PRDs, and feature briefs before they reach engineering.",
+      "author": {
+        "name": "teterouge"
+      },
+      "category": "development",
+      "keywords": ["specs", "requirements", "prd", "audit", "product"]
     }
   ]
+}
 }
