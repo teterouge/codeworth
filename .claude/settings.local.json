@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"D:\\\\dev\\\\agentic-devshop\\\\projects\\\\sandbox\\\\codeworth-v3\" && python scripts/analyze_repo.py examples/repos/cal.com 2>&1)",
+      "Bash(cd \"D:\\\\dev\\\\agentic-devshop\\\\projects\\\\sandbox\\\\codeworth-v3\" && python scripts/scan_logs_and_validation.py examples/repos/cal.com 2>&1)",
+      "Bash(cd \"D:\\\\dev\\\\agentic-devshop\\\\projects\\\\sandbox\\\\codeworth-v3\" && python scripts/analyze_repo.py examples/repos/cal.com 2>&1 | head -200)"
+    ]
+  }
+}
