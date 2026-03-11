@@ -1,5 +1,7 @@
 # Codeworth
 
+A Claude Code skill that analyzes software repositories and estimates the human time, team composition, and cost required to rebuild them from scratch.
+
 AI-powered repository valuation and rebuild-effort estimation for technical diligence, rewrite scoping, and engineering cost analysis.
 
 Codeworth is a Claude skill/plugin that analyzes a software repository and estimates the human time, team composition, and cost required to rebuild it from scratch.
@@ -32,23 +34,8 @@ That makes it useful for:
 
 ## Architecture
 
-![Codeworth architecture](docs/codeworth-architecture.png)
+![Codeworth architecture](docs/codeworth-architecture.svg)
 
-<<<<<<< HEAD
----
-
-Codeworth runs two parallel scanners, a source analysis and an artifact analysis, then uses Claude plus reference guides to produce a rebuild-effort and cost estimate.
----
-## Example Output
-
-Below is a sanitized excerpt from a real Codeworth analysis report. It shows the kind of executive-facing output the skill produces without exposing sensitive implementation details from the analyzed repository.
-
-> **Example analysis: specialized Android security application**  
-> **Analyzed for:** small startup team (2–4 engineers + 1 PM)  
-> **Rebuild difficulty:** **High**  
-> **Estimated rebuild effort:** **40–54 weeks / 2.3 person-years**  
-> **Estimated cost range:** **$352,000–$634,000 USD**  
-=======
 Codeworth runs two parallel scanners—source analysis and artifact analysis—then uses Claude plus reference guides to produce a rebuild-effort and cost estimate.
 
 ---
@@ -60,39 +47,11 @@ Below is a sanitized excerpt from a real Codeworth analysis report. It shows the
 > **Example analysis:** specialized Android security application  
 > **Estimated rebuild effort:** **40–54 weeks**  
 > **Estimated cost range:** **$350k–$640k USD**  
->>>>>>> aaca1a4 (Add architecture documentation and sanitized example analysis report)
 > **Confidence:** **Medium**
 
 ### Repository Overview
 
 - **Primary languages:** Kotlin (Android), TypeScript (Next.js)
-<<<<<<< HEAD
-- **Architecture pattern:** multi-layered mobile application with separate web/marketing surface
-- **Approximate size:** ~22,000 LOC excluding generated/vendor code
-- **Product type:** niche consumer security application
-- **Notable complexity:** platform-specific Android constraints, multiple system integrations, and unusually high validation/documentation rigor for repo size
-
-### Why the estimate was high
-
-Although the codebase was modest in raw size, Codeworth identified several factors that materially increased rebuild effort:
-
-- specialized platform knowledge not common to standard Android teams
-- nonstandard privacy and security constraints
-- multiple low-level system integrations
-- meaningful documentation and validation artifacts
-- embedded threat-model complexity that would require research before implementation
-
-### Recommended Team
-
-- **1× Senior Android / platform engineer**  
-  Owns platform architecture and highest-risk technical constraints
-
-- **1× Mid Android / full-stack engineer**  
-  Handles application flows, integrations, and supporting web surface
-
-- **1× PM / security-minded product lead**  
-  Drives threat-model translation, specification quality, and release coordination
-=======
 - **Architecture pattern:** multi-layered mobile application with supporting web surface
 - **Approximate size:** ~22,000 LOC excluding generated/vendor code
 - **Product type:** niche consumer security application
@@ -121,23 +80,11 @@ Handles UI flows, integrations, and supporting systems.
 **Product Manager / Security-Oriented PM**
 
 Responsible for threat-model translation, specifications, and release coordination.
->>>>>>> aaca1a4 (Add architecture documentation and sanitized example analysis report)
 
 ### Sample Cost Summary
 
 | Scenario | Total Hours | Estimated Cost |
 |---|---:|---:|
-<<<<<<< HEAD
-| Low | ~2,740 hrs | ~$352,000 |
-| Mid | ~3,660 hrs | ~$478,000 |
-| High | ~4,940 hrs | ~$645,000 |
-
-### Key Takeaway
-
-The codebase appeared relatively small, but the replacement cost was driven by **embedded domain knowledge, platform-specific implementation constraints, and product rigor**, not code volume alone.
-
-That is the core problem Codeworth is built to surface.
-=======
 | Low | ~2,740 hrs | ~$350,000 |
 | Mid | ~3,660 hrs | ~$480,000 |
 | High | ~4,940 hrs | ~$640,000 |
@@ -145,7 +92,6 @@ That is the core problem Codeworth is built to surface.
 ### Key Takeaway
 
 The codebase appeared relatively small, but the replacement cost was driven by **embedded domain knowledge, platform-specific engineering constraints, and product rigor**, not raw code volume.
->>>>>>> aaca1a4 (Add architecture documentation and sanitized example analysis report)
 
 ---
 
@@ -285,7 +231,22 @@ codeworth/
 
 ## Installation
 
-### Clone locally:
+### Marketplace (coming soon)
+
+Codeworth will be available through the **pm-discipline Claude Code marketplace**, which will aggregate several product-management-focused skills.
+
+Once available:
+
+```bash
+/plugin marketplace add teterouge/pm-discipline
+/plugin install codeworth
+```
+
+---
+
+### Manual installation (available now)
+
+Clone the repository and load it into Claude Code:
 
 ```
 git clone https://github.com/teterouge/codeworth.git
@@ -293,13 +254,6 @@ cd codeworth
 ```
 
 Then add the skill to your Claude environment using your preferred plugin workflow.
-
-### Install from the Marketplace
-
-```
-claude plugin marketplace add teterouge/codeworth
-claude plugin install codeworth
-```
 
 ---
 
